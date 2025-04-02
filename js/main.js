@@ -39,19 +39,29 @@ dropSlots.forEach(slot => {
 playButton.addEventListener('click', () => {
     document.querySelectorAll('.drop-slot .instrument audio').forEach(audio => {
         audio.currentTime = 0;
-        audio.play();
+        audio.loop = true;    
+        audio.play();          
     });
 });
+
 
 stopButton.addEventListener('click', () => {
     document.querySelectorAll('.drop-slot .instrument audio').forEach(audio => {
-        audio.pause();
-        audio.currentTime = 0;
+        audio.pause();         
+        audio.currentTime = 0;  
+        audio.loop = false;    
     });
 });
 
+
 resetButton.addEventListener('click', () => {
     dropSlots.forEach(slot => {
-        slot.innerHTML = '';
+        slot.innerHTML = ''; 
+
+       
+        document.querySelectorAll('.drop-slot .instrument audio').forEach(audio => {
+            audio.loop = false; 
+        });
     });
 });
+
