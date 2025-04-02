@@ -1,0 +1,26 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.hidden {
+    display: none;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+#container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #efefef;
+    padding: 20px;
+    display: flex;
+}
+
+#dropZone {
+    width: 300px;
+    height: 177px;
+    border: solid 1px #333;
+    margin-left: auto;
+}
