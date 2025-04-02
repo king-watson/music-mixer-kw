@@ -4,14 +4,12 @@ const playButton = document.getElementById('play-button');
 const stopButton = document.getElementById('stop-button');
 const resetButton = document.getElementById('reset-button');
 
-// Dragging functionality
 instruments.forEach(instrument => {
     instrument.addEventListener('dragstart', e => {
         e.dataTransfer.setData('id', instrument.id);
     });
 });
 
-// Drag over & drop functionality
 dropSlots.forEach(slot => {
     slot.addEventListener('dragover', e => {
         e.preventDefault();
@@ -31,14 +29,13 @@ dropSlots.forEach(slot => {
 
         if (!slot.hasChildNodes()) {
             const clonedInstrument = instrument.cloneNode(true);
-            clonedInstrument.id = instrumentId + "-clone"; // Avoid duplicate IDs
+            clonedInstrument.id = instrumentId + "-clone";
             clonedInstrument.draggable = false;
             slot.appendChild(clonedInstrument);
         }
     });
 });
 
-// Play all sounds
 playButton.addEventListener('click', () => {
     document.querySelectorAll('.drop-slot .instrument audio').forEach(audio => {
         audio.currentTime = 0;
@@ -46,7 +43,6 @@ playButton.addEventListener('click', () => {
     });
 });
 
-// Stop all sounds
 stopButton.addEventListener('click', () => {
     document.querySelectorAll('.drop-slot .instrument audio').forEach(audio => {
         audio.pause();
@@ -54,7 +50,6 @@ stopButton.addEventListener('click', () => {
     });
 });
 
-// Reset the stage
 resetButton.addEventListener('click', () => {
     dropSlots.forEach(slot => {
         slot.innerHTML = '';
