@@ -11,11 +11,14 @@
 <header id="header">
     <h1>Music Mixer - Drag & Drop</h1>
     <nav id="header-buttons">
-        <button id="play-button"><i class="fas fa-play"></i> Play</button>
-        <button id="stop-button"><i class="fas fa-stop"></i> Stop</button>
-        <button id="reset-button"><i class="fas fa-trash-alt"></i> Reset</button>
+        <button id="play-button"><i class="play-but"></i> Play</button>
+        <button id="stop-button"><i class="stop-but"></i> Stop</button>
+        <button id="reset-button"><i class="reset-but"></i> Reset</button>
     </nav>
 </header>
+
+<div>
+<img class="background-image" src="images/concert.jpg" alt="Background">
 
 <div id="selection-bar">
     <h2>Select an Instrument</h2>
@@ -69,8 +72,9 @@
     </div>
 </div>
 
-<div id="drop-area">
-    <p>Drop wanted audio below!</p>
+<div id="drop-instructions">
+    <h3 class="instructions-info">Music Mixer Instructions</h3>
+    <p>Drag and drop instrument icons into the boxes to create your custom mix. Once placed, press the Play button to hear the combined sounds of your selected instruments. Use the Stop button to pause the audio or the Reset button to clear the mixer and start fresh.</p>
 </div>
 
 <div id="drop-boxes">
@@ -85,7 +89,7 @@
 </div>
 
 <footer id="footer"></footer>
-
+</div>
 <script src="js/main.js"></script>
 </body>
 </html>
