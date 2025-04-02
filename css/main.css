@@ -1,26 +1,82 @@
-@charset "UTF-8";
-/* CSS Document */
-
-.hidden {
-    display: none;
-}
-
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
 }
 
-#container {
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: #efefef;
+#header {
+    background-color: #007BFF;
+    color: white;
     padding: 20px;
-    display: flex;
 }
 
-#dropZone {
-    width: 300px;
-    height: 177px;
-    border: solid 1px #333;
-    margin-left: auto;
+#header-buttons button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: white;
+    color: #007BFF;
+    border-radius: 5px;
+}
+
+#selection-bar {
+    margin: 20px auto;
+}
+
+.instrument-box {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.instrument {
+    cursor: grab;
+}
+
+.instrument img {
+    width: 100px;
+    height: auto;
+}
+
+#drop-area {
+    border: 2px dashed #007BFF;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 600px;
+    background-color: #f8f9fa;
+}
+
+#drop-boxes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.drop-row, .stage-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.drop-slot {
+    width: 120px;
+    height: 120px;
+    border: 2px dashed #007BFF;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 10px;
+}
+
+.drop-slot.over {
+    background-color: rgba(0, 123, 255, 0.2);
 }
