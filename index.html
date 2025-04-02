@@ -3,15 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Drag and Drop Example with audio</title>
+    <title>Music Mixer - Drag & Drop</title>
     <link href="css/main.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1 class="hidden">Audio Drag and Drop Example</h1>
-    <div id="container">
-        <img src="images/mic.jpg" alt="microphone" id="snareDrum" draggable="true">
-        <div id="dropZone"></div>
+<header id="header">
+    <h1>Music Mixer - Drag & Drop</h1>
+    <nav id="header-buttons">
+        <button id="play-button"><i class="fas fa-play"></i> Play</button>
+        <button id="stop-button"><i class="fas fa-stop"></i> Stop</button>
+        <button id="reset-button"><i class="fas fa-trash-alt"></i> Reset</button>
+    </nav>
+</header>
+
+<div id="selection-bar">
+    <h2>Select an Instrument</h2>
+    
+    <div class="instrument-box">
+        <div class="instrument" id="microphone" draggable="true">
+            <img src="images/mic.jpg" alt="Microphone">
+            <h3>Microphone</h3>
+            <audio src="audio/over-you-laroi.mp3"></audio>
+        </div>
     </div>
-    <script src="js/main.js"></script>
+
+    <div class="instrument-box">
+        <div class="instrument" id="drums" draggable="true">
+            <img src="images/drums.jpg" alt="Drums">
+            <h3>Drums</h3>
+            <audio src="audio/drums.mp3"></audio>
+        </div>
+    </div>
+
+    <div class="instrument-box">
+        <div class="instrument" id="saxophone" draggable="true">
+            <img src="images/saxophone.jpg" alt="Saxophone">
+            <h3>Saxophone</h3>
+            <audio src="audio/saxophone.mp3"></audio>
+        </div>
+    </div>
+
+    <div class="instrument-box">
+        <div class="instrument" id="guitar" draggable="true">
+            <img src="images/guitar.jpg" alt="Guitar">
+            <h3>Guitar</h3>
+            <audio src="audio/guitar.mp3"></audio>
+        </div>
+    </div>
+</div>
+
+<div id="drop-area">
+    <p>Drop the instruments here!</p>
+</div>
+
+<div id="drop-boxes">
+    <div class="drop-row">
+        <div class="drop-slot" data-slot="one"></div>
+        <div class="drop-slot" data-slot="two"></div>
+    </div>
+    <div class="stage-row">
+        <div class="drop-slot" data-slot="three"></div>
+        <div class="drop-slot" data-slot="four"></div>
+    </div>
+</div>
+
+<footer id="footer"></footer>
+
+<script src="js/main.js"></script>
 </body>
 </html>

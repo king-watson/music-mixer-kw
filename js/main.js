@@ -1,46 +1,62 @@
-// JavaScript
+const instruments = document.querySelectorAll('.instrument');
+const dropSlots = document.querySelectorAll('.drop-slot');
+const playButton = document.getElementById('play-button');
+const stopButton = document.getElementById('stop-button');
+const resetButton = document.getElementById('reset-button');
 
-// variables
-const snareDrum = document.querySelector('#snareDrum');
-const dropZone = document.querySelector('#dropZone');
-let draggedPiece;
+// Dragging functionality
+instruments.forEach(instrument => {
+    instrument.addEventListener('dragstart', e => {
+        e.dataTransfer.setData('id', instrument.id);
+    });
+});
 
-// functions
+// Drag over & drop functionality
+dropSlots.forEach(slot => {
+    slot.addEventListener('dragover', e => {
+        e.preventDefault();
+        slot.classList.add('over');
+    });
 
-// handler for 'dragstart' event
-function startedDragging() {
-    console.log("dragstart called");
-    draggedPiece = this;
-}
+    slot.addEventListener('dragleave', () => {
+        slot.classList.remove('over');
+    });
 
-// handler for 'dragover' event
-function draggedOver(e) {
-    console.log("dragover called");
-    e.preventDefault();
-}
+    slot.addEventListener('drop', e => {
+        e.preventDefault();
+        slot.classList.remove('over');
 
-// handler for 'drop' event
-function dropped(e) {
-    console.log("drop called");
-    e.preventDefault();
-    this.appendChild(draggedPiece);
+        const instrumentId = e.dataTransfer.getData('id');
+        const instrument = document.getElementById(instrumentId);
 
-    // special audio 'playAudio' function
-    playAudio(draggedPiece.id, this);
-}
+        if (!slot.hasChildNodes()) {
+            const clonedInstrument = instrument.cloneNode(true);
+            clonedInstrument.id = instrumentId + "-clone"; // Avoid duplicate IDs
+            clonedInstrument.draggable = false;
+            slot.appendChild(clonedInstrument);
+        }
+    });
+});
 
-// function to play audio
-function playAudio(selectedInstrument, selectedDropZone) {
-    console.log(selectedInstrument);
-    let instrument = document.createElement('audio');
-        instrument.src = `audio/${selectedInstrument}.wav`;
-        instrument.load();
-        selectedDropZone.appendChild(instrument);
-        instrument.loop = true;
-        instrument.play();
-}
+// Play all sounds
+playButton.addEventListener('click', () => {
+    document.querySelectorAll('.drop-slot .instrument audio').forEach(audio => {
+        audio.currentTime = 0;
+        audio.play();
+    });
+});
 
-// event listeners
-snareDrum.addEventListener('dragstart', startedDragging);
-dropZone.addEventListener('dragover', draggedOver);
-dropZone.addEventListener('drop', dropped);
+// Stop all sounds
+stopButton.addEventListener('click', () => {
+    document.querySelectorAll('.drop-slot .instrument audio').forEach(audio => {
+        audio.pause();
+        audio.currentTime = 0;
+    });
+});
+
+// Reset the stage
+resetButton.addEventListener('click', () => {
+    dropSlots.forEach(slot => {
+        slot.innerHTML = '';
+    });
+});
