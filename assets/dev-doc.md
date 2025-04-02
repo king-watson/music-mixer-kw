@@ -1,6 +1,6 @@
 Research:
 
-Based on the in class examples shown in class I have thought about how to implement my passion with this assignment. I have researched and hand pickked the most iconic goal horns in hockey. Songs that go together with the drag n drop feature we are to make during this task.
+Based on the in class examples shown in class I have thought about how to implement my passion with this assignment. I have researched and hand picked my favourite audios. Songs that go together with the drag n drop feature we are to make during this task.
 
 Java script allows you to drag n drop items using tags such as (dragstart) (dragover) (drop) these are needed to handle interactions.
 
